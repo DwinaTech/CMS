@@ -18,12 +18,12 @@ router.get('/', function (req, res, next) {
 });
 
 /* GET users listing. */
-router.get('/register', function (req, res, next) {
+router.get('/users/register', function (req, res, next) {
   res.render('register');
 });
 
 // Register User
-router.post('/register', function (req, res) {
+router.post('/users/register', function (req, res) {
   var name = req.body.name;
   var email = req.body.email;
   var username = req.body.username;
