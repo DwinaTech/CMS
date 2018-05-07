@@ -3,7 +3,7 @@ var router = express.Router();
 var path = require('path');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var User = require(path.dirname(require.main.filename) + '/../models/user');
+var User = require('../models/User');
 const ensureAuthenticated = require('../login/ensureAuthenticated');
 
 /* GET users listing. */
