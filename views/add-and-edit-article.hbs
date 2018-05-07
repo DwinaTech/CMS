@@ -1,0 +1,34 @@
+<div class="row">
+    <div class="col-lg-10 offset-lg-1 add-edit-article">
+        <h2>{{articleTitle}} article</h2>
+        <form method="post" encType="multipart/form-data">
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" name="title" value="{{articleData.title}}" placeholder="Title" class="form-control">
+            </div>
+            <div class="form-group">
+                <label  class="form-label">{{imageTitle}} Image</label>
+                    <input class="form-control" type="file" name="articleImage" id="example-text-input">
+                </div>
+            <select class="form-control" name="category">
+                {{#if articleData}}
+                    <option value="{{articleData.category}}" selected>{{categoryTitle}}</option>
+                {{else}}
+                    <option value="null" selected >Select Category</option>
+                {{/if}}
+                {{#each categories}}
+                    <option value={{this._id}}>{{this.title}}</option>
+                {{/each}}
+            </select><br/>
+            <div class="form-group">
+                <label>Content</label>
+                <textarea type="text" rows="6" name="content" id="inputSuccess1" placeholder="Content" class="form-control">{{articleData.content}}</textarea>
+            </div>
+            <div class="form-group">
+                <label>footer</label>
+                <textarea type="text" rows="4" name="footer" id="inputSuccess2" placeholder="Footer" class="form-control">{{articleData.footer}}</textarea>
+            </div>
+            <button class="btn btn-default">Submit</button>
+        </form>
+    </div>
+</div>

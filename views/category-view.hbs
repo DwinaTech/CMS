@@ -1,0 +1,16 @@
+<div class="row">
+    {{#each article}}
+    <div class="col-lg-4">
+        <div class="card text-white bg-dark mb-3">
+            <div class="card-header text-danger">{{category.title}}</div>
+            <div class="card-body">
+                <h6 class="card-title">{{this.title}}</h6>
+                <p class="card-text">{{this.content}}</p>
+                <p class="card-text">{{this.footer}}</p>
+            </div>
+            <a href="/admin/articles/edit/{{this._id}}" class="btn btn-primary">Edit</a>
+            <a href="/admin/articles/delete/{{this._id}}" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+    {{/each}}
+</div>

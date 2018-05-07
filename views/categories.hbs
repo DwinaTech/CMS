@@ -1,0 +1,16 @@
+<div class="row">
+     {{#each category}}
+    <div class="col-lg-4">
+        <div class="card text-white bg-dark mb-3">
+            <div class="card-header">{{this.title}}</div>
+            <div class="card-body">
+                <h6 class="card-title">Description</h6>
+                <p class="card-text">{{this.description}}</p>
+                <h6 class="card-title">Short Description</h6>
+                <p class="card-text">{{this.shortDescription}}</p>
+            </div>
+            <a href="/admin/categories/edit/{{this._id}}" class="btn btn-info">Edit</a>
+        </div>
+    </div>
+    {{/each}}
+</div>
