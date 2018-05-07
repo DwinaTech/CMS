@@ -76,8 +76,8 @@ app.use(function (req, res, next) {
 
 const ensureAuthenticated = require('./login/ensureAuthenticated');
 
-app.use('/', index);
-app.use('/users', users);
+app.use('/:dashboard', index);
+app.use('/', users);
 app.use('/admin', ensureAuthenticated, admin);
 app.use('/admin/articles', adminArticles);
 app.use('/admin/categories', adminCategories);

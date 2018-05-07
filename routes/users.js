@@ -6,13 +6,14 @@ var User = require('../models/user');
 const ensureAuthenticated = require('../login/ensureAuthenticated');
 
 /* GET users listing. */
-router.get('/', ensureAuthenticated, function(req, res, next) {
+router.get('/dashboard/users', ensureAuthenticated, function(req, res, next) {
   res.render('users');
 });
 
 /* GET users listing. */
-router.get('/login', function (req, res, next) {
-  res.render('login');
+router.get('/', function (req, res, next) {
+  req.logout();
+  res.render('login', { layout: false });
 });
 
 /* GET users listing. */
@@ -57,7 +58,7 @@ router.post('/register', function (req, res) {
 
     req.flash('success_msg', 'You are registered and can now login');
 
-    res.redirect('/users/login');
+    res.redirect('/');
   }
 });
 
@@ -90,18 +91,18 @@ passport.deserializeUser(function (id, done) {
   });
 });
 
-router.post('/login',
-  passport.authenticate('local', { successRedirect: '/', failureRedirect: '/users/login', failureFlash: true }),
+router.post('/',
+  passport.authenticate('local', { successRedirect: '/dashboard', failureRedirect: '/', failureFlash: true }),
   function (req, res) {
-    res.redirect('/');
+    res.redirect('/dashboard');
   });
 
-router.get('/logout', function (req, res) {
+router.get('/users/logout', function (req, res) {
   req.logout();
 
   req.flash('success_msg', 'You are logged out');
 
-  res.redirect('/users/login');
+  res.redirect('/');
 });
 
 module.exports = router;
