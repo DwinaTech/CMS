@@ -12,6 +12,7 @@ var expressValidator = require('express-validator');
 const fileUpload = require('express-fileupload');
 
 var index = require('./routes/index');
+var api = require('./routes/api');
 var users = require('./routes/users');
 var admin = require('./routes/admin');
 var adminArticles = require('./routes/admin/articles');
@@ -81,6 +82,7 @@ app.use('/', users);
 app.use('/admin', ensureAuthenticated, admin);
 app.use('/admin/articles', adminArticles);
 app.use('/admin/categories', adminCategories);
+app.use('/api', api);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
