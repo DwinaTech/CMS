@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const dbCategory = require('../../db/dbCategories');
 const dbArticles = require('../../db/dbArticles');
 const ObjectId = require('mongodb').ObjectID;

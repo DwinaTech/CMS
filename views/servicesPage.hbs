@@ -1,0 +1,14 @@
+<div class="row">
+  {{#each service}}
+  <div class="col-lg-4">
+    <div class="card text-white bg-dark mb-3">
+      <div class="card-body">
+        <h6 class="card-title text-success">{{this.title}}</h6>
+        <p class="card-text">{{this.content}}</p>
+      </div>
+      <a href="/admin/service/edit/{{this._id}}" class="btn btn-primary">Edit</a>
+      <a href="/admin/service/delete/{{this._id}}" class="btn btn-danger">Delete</a>
+    </div>
+  </div>
+  {{/each}}
+</div>

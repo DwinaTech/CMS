@@ -1,13 +1,15 @@
 const express = require('express');
-const nodemailer = require('nodemailer');
+const dbService = require('../db/dbServices');
 const router = express.Router();
 
-router.post('/contact', (req, res) => {
- res.json({success: true})
-});
-
 router.get('/service', (req, res) => {
-  res.json({success: true})
-})
+  try {
+    dbService.getServices(service => {
+      res.json(service);
+    });
+  } catch (err) {
+    res.json(err)
+  }
+});
 
 module.exports = router;
