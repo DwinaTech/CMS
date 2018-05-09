@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-lg-10 offset-lg-1 add-edit-article">
+    <h2>{{serviceTitle}} Service</h2>
+     {{#if message}}
+        <span class="alert alert-success">{{message}}</span>
+     {{/if}}
+    <form method="post">
+      <div class="form-group">
+        <label>Title</label>
+        <input type="text" name="title" value="{{service.title}}" placeholder="Title" class="form-control">
+      </div>
+      <div class="form-group">
+        <label class="form-label">{{imageTitle}} Image</label>
+        <input class="form-control" value="{{service.serviceImage}}" type="text" name="serviceImage" id="example-text-input">
+      </div>
+      <br/>
+      <div class="form-group">
+        <label>Content</label>
+        <textarea type="text" rows="6" name="content" id="inputSuccess1" placeholder="Content" class="form-control">{{service.content}}</textarea>
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+  </div>
+</div>

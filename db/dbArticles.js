@@ -1,6 +1,5 @@
 require('./dbConection');
 const Article = require('../models/Article');
-//const ObjectId = require('mongodb').ObjectID;
 
 const addArticle = (query, callBack) => {
     const articleData = new Article(query)
