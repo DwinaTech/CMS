@@ -10,6 +10,7 @@ const flash = require('connect-flash');
 const LocalStrategy = require('passport-local').Strategy;
 const expressValidator = require('express-validator');
 const fileUpload = require('express-fileupload');
+const cors = require('cors')
 
 const index = require('./routes/index');
 const service = require('./routes/admin/Services');
@@ -45,6 +46,7 @@ app.use(session({
 // Passport init
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(cors())
 
 // Express Validator
 app.use(expressValidator({
