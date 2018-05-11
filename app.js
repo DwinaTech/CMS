@@ -18,6 +18,7 @@ const api = require('./routes/api');
 const users = require('./routes/users');
 const admin = require('./routes/admin');
 const adminArticles = require('./routes/admin/articles');
+const personalInfo = require('./routes/admin/personalInfo');
 const adminCategories = require('./routes/admin/categories');
 
 const app = express();
@@ -85,6 +86,7 @@ app.use('/', users);
 app.use('/admin', ensureAuthenticated, admin);
 app.use('/admin/articles', adminArticles);
 app.use('/admin/service', service);
+app.use('/admin/personalInfo', personalInfo);
 app.use('/admin/categories', adminCategories);
 app.use('/api', api);
 
