@@ -1,0 +1,15 @@
+<div class="row">
+  {{#each personalInfo}}
+  <div class="col-lg-4">
+    <div class="card text-white bg-dark mb-3">
+      <div class="card-body">
+        <h4 class="card-title text-success">{{this.title}}</h4>
+        <h6 class="card-title text-success">{{this.infoDate}}</h6>
+        <p class="card-text">{{this.content}}</p>
+      </div>
+      <a href="/admin/personalInfo/edit/{{this._id}}" class="btn btn-primary">Edit</a>
+      <a href="/admin/personalInfo/delete/{{this._id}}" class="btn btn-danger">Delete</a>
+    </div>
+  </div>
+  {{/each}}
+</div>
