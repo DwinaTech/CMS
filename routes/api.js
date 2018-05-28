@@ -29,9 +29,10 @@ router.get('/info', (req, res) => {
 
 router.post('/contact', (req, res) => {
   const { email, fullname, tel, message } = req.body;
+  const myEmail = process.env.MY_EMAIL;
   const data = {
     from: `<${email}>`,
-    to: 'Mr Dwina, <mohammed@dwinatech.com>',
+    to: `Mr Dwina, <${myEmail}>`,
     subject: 'DwinaTech Customer',
     text: 'www.dwinaTech.com!',
     html: `<html>
