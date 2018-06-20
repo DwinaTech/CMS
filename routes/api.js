@@ -1,6 +1,6 @@
 const express = require('express');
-const api_key = process.env.KEY_NAME;
-const DOMAIN = process.env.DOMAIN_NAME;
+const api_key = KEY_NAME;
+const DOMAIN = DOMAIN_NAME;
 const mailgun = require('mailgun-js')({ apiKey: api_key, domain: DOMAIN });
 const dbService = require('../db/dbServices');
 const dbPersonalInfo = require('../db/dbPersonalInfo');
@@ -36,18 +36,17 @@ router.post('/contact', (req, res) => {
     subject: 'DwinaTech Customer',
     text: 'www.dwinaTech.com!',
     html: `<html>
-      <h2>Name: ${fullname}</h2>
-      <h3>Tel: ${tel}</h3>
+      <h4>Name: ${fullname}</h4>
+      <h5>Tel: ${tel}</h5>
       <p>Message: ${message}</p>
     </html>`,
   };
 
-  mailgun.messages().send(data, function (error, body) {
-    if (error) {
+  mailgun.messages().send(data, function (body) {
+    if (!body || body.length === 0) {
       res.status(502).json({
         success: false,
         message: "Sorry there is an error occurred, please try again",
-        error
       })
     }
     res.json({
