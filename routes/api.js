@@ -1,6 +1,6 @@
 const express = require('express');
-const api_key = KEY_NAME;
-const DOMAIN = DOMAIN_NAME;
+const api_key = process.env.KEY_NAME;
+const DOMAIN = process.env.DOMAIN_NAME;
 const mailgun = require('mailgun-js')({ apiKey: api_key, domain: DOMAIN });
 const dbService = require('../db/dbServices');
 const dbPersonalInfo = require('../db/dbPersonalInfo');
