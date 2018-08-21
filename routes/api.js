@@ -42,11 +42,12 @@ router.post('/contact', (req, res) => {
     </html>`,
   };
 
-  mailgun.messages().send(data, function (body) {
-    if (!body || body.length === 0) {
+  mailgun.messages().send(data, function (err, body) {
+    if (err || !body || body.length === 0) {
       res.status(502).json({
         success: false,
         message: "Sorry there is an error occurred, please try again",
+        err
       })
     }
     res.json({
