@@ -17,7 +17,7 @@
     "dotenv": "^5.0.1",
     "express": "*",
     "express-fileupload": "^0.3.0",
-    "express-handlebars": "^3.0.0",
+    "express-handlebars": "^5.3.1",
     "express-messages": "*",
     "express-session": "*",
     "express-validator": "*",
